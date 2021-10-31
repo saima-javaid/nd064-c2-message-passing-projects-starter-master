@@ -19,7 +19,7 @@ kind: Deployment
 metadata:
   labels:
     service: udaconnect-app
-    tag: latest
+    tag: latest1
   name: udaconnect-app
 spec:
   replicas: 1
@@ -32,7 +32,7 @@ spec:
         service: udaconnect-app
     spec:
       containers:
-      - image: saimajavaid/nd064-udaconnect-app:latest
+      - image: saimajavaid/nd064-udaconnect-app:0.1
         name: udaconnect-app
         imagePullPolicy: Always
         resources:

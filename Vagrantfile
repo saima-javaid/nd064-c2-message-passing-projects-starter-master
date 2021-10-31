@@ -21,11 +21,11 @@ Vagrant.configure("2") do |config|
     master.vm.network 'private_network', ip: "192.168.0.200",  virtualbox__intnet: true
     master.vm.network "forwarded_port", guest: 22, host: 2222, id: "ssh", disabled: true
     master.vm.network "forwarded_port", guest: 22, host: 2000 # Master Node SSH
-    master.vm.network "forwarded_port", guest: 80, host: 8080
-    master.vm.network "forwarded_port", guest: 8080, host: 8080
+    # master.vm.network "forwarded_port", guest: 80, host: 8080
+    # master.vm.network "forwarded_port", guest: 8080, host: 8080
     master.vm.network "forwarded_port", guest: 6443, host: 6445 # API Access
     master.vm.synced_folder "./", "/vagrant", type: "virtualbox", create: true
-    for p in 30000..30100 # expose NodePort IP's
+    for p in 30005..30100 # expose NodePort IP's
       master.vm.network "forwarded_port", guest: p, host: p, protocol: "tcp"
       end
     master.vm.provider "virtualbox" do |v|

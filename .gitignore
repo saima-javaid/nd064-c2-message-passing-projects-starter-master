@@ -123,3 +123,9 @@ app/app-test.db
 
 .vagrant
 .ds_store
+kafka_2.13-3.0.0/
+# installers
+.exe
+# workspace files
+.code-workspace
+skaffold/
