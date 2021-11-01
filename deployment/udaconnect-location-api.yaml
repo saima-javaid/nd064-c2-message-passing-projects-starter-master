@@ -19,7 +19,7 @@ kind: Deployment
 metadata:
   labels:
     service: udaconnect-api
-    tag: latest4
+    tag: latest1
   name: udaconnect-location-api
 spec:
   replicas: 1
@@ -32,7 +32,7 @@ spec:
         service: udaconnect-api
     spec:
       containers:
-      - image: saimajavaid/nd064-udaconnect-location-api:0.4
+      - image: saimajavaid/nd064-udaconnect-location-api:0.5
         name: udaconnect-location-api
         imagePullPolicy: Always
         env:
