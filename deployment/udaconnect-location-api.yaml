@@ -32,7 +32,7 @@ spec:
         service: udaconnect-api
     spec:
       containers:
-      - image: saimajavaid/nd064-udaconnect-location-api:0.5
+      - image: saimajavaid/nd064-udaconnect-location-api:0.6
         name: udaconnect-location-api
         imagePullPolicy: Always
         env:

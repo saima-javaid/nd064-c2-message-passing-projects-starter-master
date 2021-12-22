@@ -16,11 +16,12 @@ DATE_FORMAT = "%Y-%m-%d"
 api = Namespace("UdaConnect", description="Connections via geolocation.")  # noqa
 
 
-
-
+@api.route("/locations")
+@api.route("/locations/<location_id>")
+@api.param("location_id", "Unique ID for a given Location", _in="query")
 class LocationResource(Resource):
     # post location
-    @api.route("/location")
+    
     @accepts(schema=LocationSchema)
     @responds(schema=LocationSchema)   
     def post(self) -> Location:
@@ -29,15 +30,14 @@ class LocationResource(Resource):
         return location
 
     # get location by ID
-    @api.route("/location/<location_id>")
-    @api.param("location_id", "Unique ID for a given Location", _in="query") 
+   
     @responds(schema=LocationSchema)
     def get(self, location_id) -> Location:
         location: Location = LocationService.retrieve(location_id)
         return location
 
     #get all locations
-    @api.route("/locations")
+   
     @responds(schema=LocationSchema, many=True)
     def get(self) -> List[Location]:
         locations: List[Location] = LocationService.retrieve_all()
