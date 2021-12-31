@@ -13,6 +13,7 @@ DB_NAME = os.environ["DB_NAME"]
 #DB_HOST= "postgres"
 #DB_PORT= "5432"
 
+
 class BaseConfig:
     CONFIG_NAME = "base"
     USE_MOCK_EQUIVALENCY = False

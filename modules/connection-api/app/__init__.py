@@ -12,7 +12,7 @@ def create_app(env=None):
 
     app = Flask(__name__)
     app.config.from_object(config_by_name[env or "test"])
-    api = Api(app, title="UdaConnect Location API", version="0.1.0")
+    api = Api(app, title="UdaConnect Connection API", version="0.1.0")
 
     CORS(app, supports_credentials=True)  # Set CORS for development
 

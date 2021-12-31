@@ -3,13 +3,13 @@ kind: Service
 metadata:
   labels:
     service: udaconnect-api
-  name: udaconnect-location-api
+  name: udaconnect-connection-api
 spec:
   ports:
-  - name: "5000"
-    port: 5000
-    targetPort: 5000
-    nodePort: 30002
+  - name: "5001"
+    port: 5001
+    targetPort: 5001
+    nodePort: 30001
   selector:
     service: udaconnect-api
   type: NodePort
@@ -20,7 +20,7 @@ metadata:
   labels:
     service: udaconnect-api
     tag: latest
-  name: udaconnect-location-api
+  name: udaconnect-connection-api
 spec:
   replicas: 1
   selector:
@@ -32,8 +32,8 @@ spec:
         service: udaconnect-api
     spec:
       containers:
-      - image: saimajavaid/nd064-udaconnect-location-api:0.7
-        name: udaconnect-location-api
+      - image: saimajavaid/nd064-udaconnect-connection-api:0.2
+        name: udaconnect-connection-api
         imagePullPolicy: Always
         env:
         - name: DB_USERNAME
