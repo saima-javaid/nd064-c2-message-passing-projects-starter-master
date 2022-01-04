@@ -25,7 +25,9 @@ def create_app(env=None):
         # Set up a Kafka producer and consumer
         TOPIC_NAME = 'locations'
         KAFKA_SERVER = 'kafka-headless:9092'
-        producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER,api_version=(0,10,2),value_serializer=lambda x: dumps(x).encode())
+        #producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER,api_version=(0,10,2),value_serializer=lambda x: dumps(x).encode())
+        #consumer = KafkaConsumer(TOPIC_NAME,bootstrap_servers=KAFKA_SERVER,api_version=(0,10,2),auto_offset_reset='earliest',enable_auto_commit=True,group_id='my-group',value_deserializer=lambda x: loads(x.decode()))
+        producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER,api_version=(0,10,2))
         consumer = KafkaConsumer(TOPIC_NAME,bootstrap_servers=KAFKA_SERVER,api_version=(0,10,2),auto_offset_reset='earliest',enable_auto_commit=True,group_id='my-group',value_deserializer=lambda x: loads(x.decode()))
         # Setting Kafka to g and use in other parts of application
         g.kafka_producer = producer
